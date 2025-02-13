@@ -8,7 +8,7 @@ export const Nav = ({ startLogout, status, user }) => {
 
         <span className="navbar-brand">
             <i className="fas fa-calendar-alt"></i>&nbsp;
-             { user } Club Mazocahui
+             { user } Club Deportivo de Caza, Tiro y Pesca Mazocahui, A.C.
         </span>
 {/*
         { status &&

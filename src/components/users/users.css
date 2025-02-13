@@ -29,18 +29,18 @@ fieldset>div>input {
 fieldset>div>button{
 	border: 1px solid transparent;
 	margin-left: auto;
-background-color: transparent;
- color:steelblue;
+	background-color: transparent;
+ 	color:steelblue;
 }
 
 fieldset>div>label {
   text-transform: capitalize;
-   display: flex;
-   align-items: center;
+
 }
 
 fieldset>div{
-
+	 display: flex;
+   align-items: center;
 }
 
 fieldset>div:nth-child(even){
