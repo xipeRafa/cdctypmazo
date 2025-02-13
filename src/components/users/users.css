@@ -39,8 +39,8 @@ fieldset>div>label {
 }
 
 fieldset>div{
-	 display: flex;
-   align-items: center;
+	display: flex;
+   	align-items: center;
 }
 
 fieldset>div:nth-child(even){
@@ -57,13 +57,17 @@ modal{
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	border: 10vh solid rgba(0,0,0, .5);
+	z-index: 99;
 }
 
 @media (max-width:900px){
-	modal{
+	/*modal{
 		border: 2vh solid rgba(0,0,0, .5);
 		border-bottom: 10vh solid rgba(0,0,0, .5);
+	}*/
+
+	modal{
+		border: 20px solid rgba(0,0,0, .5);
 	}
 }
 
@@ -87,6 +91,7 @@ modal{
    margin-top: auto;
    background-color: salmon;
    color: darkred;
+   border-radius: 0;
 }
 
 
