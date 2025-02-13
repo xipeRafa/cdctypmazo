@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import { useUsers } from '../../hooks'
 // import logo from '../../assets/logo.png'
 
+import './users.css';
+
+
 
 
 export const Users = () => {
@@ -25,27 +28,35 @@ export const Users = () => {
 
 
 
-    const [requisitosState, setRequisitosState]=useState({scales:false, horns:false, scales1:false, horns1:false})
+    const [requisitosState, setRequisitosState]=useState({
+        cartillaMilitar:false, 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
 
-    const {scales, horns, scales1, horns1} = requisitosState
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        ine:false,
+
+        fotos:false, 
+        registrosDeArmas:false, 
+    })
+
+    const {cartillaMilitar, horns, scales1, horns1} = requisitosState
 
     // const [arrStateReq, setArrStateReq]=useState([])
 
     const handleChangeCheckbox =(e)=>{
-           
-            localStorage.checked=e.target.checked ? 'true' : 'false' 
-
 
             setRequisitosState({...requisitosState, [e.target.name]: e.target.checked })
 
             Object.values(requisitosState)
 
-          
-
     }
 
     if(Object.values(requisitosState).filter(el => el === false).length === 0){
-                 console.log('true')
+                alert('completo')
     }else{
                 console.log('else')
     }
@@ -57,28 +68,91 @@ export const Users = () => {
     return (
         <div>
 
+        <h2>Sistema para Inscripciones</h2>
+
         <fieldset>
-            <legend>Requisitos</legend>
+            <legend>Requisitos Documentacion para Inscripciones</legend>
 
             <div>
-                    <input type="checkbox" id="scales" name="scales" value={scales ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
-                    <label htmlFor="scales">Scales</label>
+                    <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar" value={cartillaMilitar ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
+                    <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
+                    <button>Detalles..</button>
+                    {/*en su defecto carta de excepción de cartilla militar*/}
             </div>
 
             <div>
-                    <input type="checkbox" id="horns" name="horns" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="horns">Horns</label>
+                    <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
+                    <button>Detalles..</button>
             </div>
 
               <div>
-                    <input type="checkbox" id="scales1" name="scales1" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="scales1">Scales1</label>
+                    <input type="checkbox" id="certPsicologico" name="certPsicologico" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="certPsicologico">certificado psicologico </label>
+                    <button>Detalles..</button>
+                    {/*(en oficina) martes 11:30 ( con cita ) - calendario digital*/}
             </div>
 
             <div>
-                    <input type="checkbox" id="horns1" name="horns1" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="horns1">Horns1</label>
+                    <input type="checkbox" id="cartaDeTrabajo" name="cartaDeTrabajo" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="cartaDeTrabajo">
+                            carta de trabajo 
+                    </label>
+                    <button>Detalles..</button>
             </div>
+
+              <div>
+                    <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="comprobanteDeDomicilio">
+                            comprobante de domicilio reciente 
+                    </label>
+                    <button>Detalles..</button>
+            </div>
+
+
+
+
+
+
+              <div>
+                    <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="antidopin">antidopin toxicologico</label>
+                    <button>Detalles..</button>
+            </div>
+
+
+              <div>
+                    <input type="checkbox" id="certificadoMedico" name="certificadoMedico" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="certificadoMedico">certificado medico </label>
+                    <button>Detalles..</button>
+            </div>
+
+            <div>
+                    <input type="checkbox" id="ine" name="ine" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="ine">
+                            INE
+                    </label>
+                    <button>Detalles..</button>
+            </div>
+
+
+              <div>
+                    <input type="checkbox" id="fotos" name="fotos" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="fotos">fotografia a color  </label>
+                    <button>Detalles..</button>
+                    {/*fondo blanco a color sin lentes*/}
+            </div>
+
+            <div>
+                    <input type="checkbox" id="registrosDeArmas" name="registrosDeArmas" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="registrosDeArmas">
+                            copia de registros de armas legible
+                    </label>
+                    <button>Detalles..</button>
+            </div>
+
+
+
         </fieldset>
 
 

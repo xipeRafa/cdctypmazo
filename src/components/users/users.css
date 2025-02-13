@@ -1,0 +1,50 @@
+fieldset{
+	border: 1px solid gray; 
+	background-color: white;
+	width: 80%;
+	margin-left: 10%;
+}
+
+
+legend {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+fieldset>div{
+		padding: 10px;
+		display: flex;
+}
+
+fieldset>div>input {
+ /* 	position: relative;
+	top: 0px; 
+	left: 10px;*/
+	margin-right: 10px;
+}
+
+fieldset>div>button{
+	border: 1px solid transparent;
+	margin-left: auto;
+background-color: transparent;
+ color:steelblue;
+}
+
+fieldset>div>label {
+  text-transform: capitalize;
+}
+
+fieldset>div{
+
+}
+
+fieldset>div:nth-child(even){
+	background-color: rgba(0,0,0, .2);
+}
+
+fieldset>div>button:nth-child(odd){
+	background-color: white;
+}

@@ -4,4 +4,4 @@
 # login-redux-tool-kit-vite-axios-Backend
 # Front-Redux
 # tov
-https://xiperafa.github.io/tov/# cdctypmazo
+https://xiperafa.github.io/cdctypmazo 
