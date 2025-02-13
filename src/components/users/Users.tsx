@@ -64,8 +64,15 @@ export const Users = () => {
 
 
     const [isActiveModal, setIsActiveModal] = useState(true);
+    const [detallesState, setDetallesState] = useState('')
 
      console.log(isActiveModal)
+
+
+     const detallesHandler=(text)=>{
+        setIsActiveModal(!isActiveModal)
+        setDetallesState(text)
+     }
 
     return (
         <div>
@@ -78,26 +85,25 @@ export const Users = () => {
         <br />
 
         <fieldset>
+
             <legend>Requisitos Documentacion para Inscripciones</legend>
 
             <div>
                     <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar" value={cartillaMilitar ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
                     <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
-                    <button onClick={() => setIsActiveModal(!isActiveModal)}>Detalles..</button>
-                    {/*en su defecto carta de excepción de cartilla militar*/}
+                    <button onClick={() => detallesHandler('en su defecto carta de excepción de cartilla militar') }>Detalles...</button>
             </div>
 
             <div>
                     <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}/>
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('Modulo de Informacio:') }>Detalles...</button>
             </div>
 
               <div>
                     <input type="checkbox" id="certPsicologico" name="certPsicologico" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="certPsicologico">certificado psicologico </label>
-                    <button>Detalles..</button>
-                    {/*(en oficina) martes 11:30 ( con cita ) - calendario digital*/}
+                    <label htmlFor="certPsicologico">Certificado psicologico </label>
+                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - calendario digital') }>Detalles...</button>
             </div>
 
             <div>
@@ -105,7 +111,7 @@ export const Users = () => {
                     <label htmlFor="cartaDeTrabajo">
                             carta de trabajo 
                     </label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('carta de trabajo ') }>Detalles...</button>
             </div>
 
               <div>
@@ -113,7 +119,9 @@ export const Users = () => {
                     <label htmlFor="comprobanteDeDomicilio">
                             comprobante de domicilio reciente 
                     </label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('comprobante de domicilio reciente Domicilio donde manifieste las armas Domicilio a nombre de el o carta de residencia en municipio') }>
+                        Detalles...
+                    </button>
             </div>
 
 
@@ -124,14 +132,14 @@ export const Users = () => {
               <div>
                     <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}/>
                     <label htmlFor="antidopin">antidopin toxicologico</label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('antidopin toxicologico') }>Detalles...</button>
             </div>
 
 
               <div>
                     <input type="checkbox" id="certificadoMedico" name="certificadoMedico" onChange={handleChangeCheckbox}/>
                     <label htmlFor="certificadoMedico">certificado medico </label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('certificado medico') }>Detalles...</button>
             </div>
 
             <div>
@@ -139,15 +147,14 @@ export const Users = () => {
                     <label htmlFor="ine">
                             INE
                     </label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('INE') }>Detalles...</button>
             </div>
 
 
               <div>
                     <input type="checkbox" id="fotos" name="fotos" onChange={handleChangeCheckbox}/>
                     <label htmlFor="fotos">fotografia a color  </label>
-                    <button>Detalles..</button>
-                    {/*fondo blanco a color sin lentes*/}
+                    <button onClick={() => detallesHandler('fotografia a color fondo blanco a color sin lentes') }>Detalles...</button>
             </div>
 
             <div>
@@ -155,15 +162,16 @@ export const Users = () => {
                     <label htmlFor="registrosDeArmas">
                             copia de registros de armas legible
                     </label>
-                    <button>Detalles..</button>
+                    <button onClick={() => detallesHandler('copia de registros de armas legible') }>Detalles...</button>
             </div>
-
 
 
         </fieldset>
 
 
-         <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
+
+        <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
+                <div className='detallesContent'>{detallesState}</div>
                 <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar</button>
         </modal>
 

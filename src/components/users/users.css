@@ -35,6 +35,8 @@ background-color: transparent;
 
 fieldset>div>label {
   text-transform: capitalize;
+   display: flex;
+   align-items: center;
 }
 
 fieldset>div{
@@ -58,6 +60,13 @@ modal{
 	border: 10vh solid rgba(0,0,0, .5);
 }
 
+@media (max-width:900px){
+	modal{
+		border: 2vh solid rgba(0,0,0, .5);
+		border-bottom: 10vh solid rgba(0,0,0, .5);
+	}
+}
+
 
 .inModal{
 /*Box-shadow: -10vh -10vh red,  10vh 30vh black, 10vh -10vh green, -10vh 20vh yellow; */
@@ -78,4 +87,12 @@ modal{
    margin-top: auto;
    background-color: salmon;
    color: darkred;
+}
+
+
+.detallesContent{
+	border: 2px solid red;
+	text-align: center;
+	margin: 4%;
+	text-transform: capitalize;
 }
