@@ -48,3 +48,34 @@ fieldset>div:nth-child(even){
 fieldset>div>button:nth-child(odd){
 	background-color: white;
 }
+
+modal{
+	width: 100%;
+	background-color: white;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	border: 10vh solid rgba(0,0,0, .5);
+}
+
+
+.inModal{
+/*Box-shadow: -10vh -10vh red,  10vh 30vh black, 10vh -10vh green, -10vh 20vh yellow; */
+ 	position: fixed;
+  	top:0;
+  	left: 0;
+  	transition: .8s;
+}
+
+.outModal {
+	position: fixed;
+	top:0;
+    left: -150%;
+    transition: .8s;
+}
+
+.btnCerrarModal{
+   margin-top: auto;
+   background-color: salmon;
+   color: darkred;
+}

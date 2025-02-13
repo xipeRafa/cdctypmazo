@@ -172,3 +172,18 @@ input[type="button"]:focus{
     border: 1px solid salmon;
 }
 
+button{
+  border: 1px solid transparent;
+  height: 38px;
+  text-transform: uppercase;
+}
+
+button:hover{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+
+
+
+
+

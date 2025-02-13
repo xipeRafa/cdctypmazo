@@ -58,17 +58,20 @@ export const Users = () => {
     if(Object.values(requisitosState).filter(el => el === false).length === 0){
                 alert('completo')
     }else{
-                console.log('else')
+               
     }
 
 
 
+    const [isActiveModal, setIsActiveModal] = useState(true);
 
+     console.log(isActiveModal)
 
     return (
         <div>
 
         {/*<h2>Sistema para Inscripciones</h2>*/}
+
 
         <br />
         <br />
@@ -80,7 +83,7 @@ export const Users = () => {
             <div>
                     <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar" value={cartillaMilitar ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
                     <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
-                    <button>Detalles..</button>
+                    <button onClick={() => setIsActiveModal(!isActiveModal)}>Detalles..</button>
                     {/*en su defecto carta de excepción de cartilla militar*/}
             </div>
 
@@ -158,6 +161,11 @@ export const Users = () => {
 
 
         </fieldset>
+
+
+         <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
+                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar</button>
+        </modal>
 
 
 
