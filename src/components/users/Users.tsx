@@ -68,7 +68,11 @@ export const Users = () => {
     return (
         <div>
 
-        <h2>Sistema para Inscripciones</h2>
+        {/*<h2>Sistema para Inscripciones</h2>*/}
+
+        <br />
+        <br />
+        <br />
 
         <fieldset>
             <legend>Requisitos Documentacion para Inscripciones</legend>

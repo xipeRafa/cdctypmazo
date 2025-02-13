@@ -8,7 +8,7 @@ export const Nav = ({ startLogout, status, user }) => {
 
         <span className="navbar-brand">
             <i className="fas fa-calendar-alt"></i>&nbsp;
-             { user } Club Deportivo de Caza, Tiro y Pesca Mazocahui, A.C.
+             { user } Club Mazocahui
         </span>
 {/*
         { status &&
@@ -27,9 +27,9 @@ export const Nav = ({ startLogout, status, user }) => {
                     Inscripción
                 </Link>
 
-               {/* <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" onClick={ startLogout }>
+                <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" onClick={ startLogout }>
                     <i className="fas fa-sign-out-alt"></i> salir
-                </Link>*/}
+                </Link>
 
                
 {/*
