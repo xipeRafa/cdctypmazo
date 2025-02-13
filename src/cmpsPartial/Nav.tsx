@@ -27,11 +27,11 @@ export const Nav = ({ startLogout, status, user }) => {
                     Inscripción
                 </Link>
 
-                <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" onClick={ startLogout }>
+                <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" >
                     <i className="fas fa-sign-out-alt"></i> salir
                 </Link>
 
-               
+               {/*onClick={ startLogout }*/}
 {/*
               <a href="https://api.whatsapp.com/send?phone=526621891032&text=Linea de Soporte App Directorio TOV Hermosillo Sonora" target='_blank' style={{textDecoration:'none'}}>
                   <img className='whatsapp' src={whatsapp} alt="whatsapp" />
