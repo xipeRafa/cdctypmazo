@@ -51,7 +51,7 @@ fieldset>div>button:nth-child(odd){
 	background-color: white;
 }
 
-modal{
+modal,modalImg{
 	width: 100%;
 	background-color: white;
 	height: 100%;
@@ -59,16 +59,21 @@ modal{
 	flex-direction: column;
 	z-index: 99;
 	border: 30px solid rgba(0,0,0, .5);
+	text-align: center;
+}
+
+modalImg>img{
+	width: 34%;
+	margin-left: 33%;
 }
 
 @media (max-width:900px){
-	/*modal{
-		border: 2vh solid rgba(0,0,0, .5);
-		border-bottom: 10vh solid rgba(0,0,0, .5);
-	}*/
-
 	modal{
 		border: 20px solid rgba(0,0,0, .5);
+	}
+	modalImg>img{
+		width: 100%;
+		margin-left: 0;
 	}
 }
 

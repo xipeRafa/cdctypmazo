@@ -6,7 +6,7 @@ import { useUsers } from '../../hooks'
 
 import './users.css';
 
-
+import reqImg from "../../imgs/requisitos.webp";
 
 
 export const Users = () => {
@@ -64,6 +64,7 @@ export const Users = () => {
 
 
     const [isActiveModal, setIsActiveModal] = useState(true);
+    const [isActiveModalImg, setIsActiveModalImg] = useState(true);
     const [detallesState, setDetallesState] = useState('')
 
      console.log(isActiveModal)
@@ -89,15 +90,25 @@ export const Users = () => {
             <legend>Requisitos Documentacion para Inscripciones</legend>
 
             <div>
-                    <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar" value={cartillaMilitar ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
-                    <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
-                    <button onClick={() => detallesHandler('en su defecto carta de excepción de cartilla militar') }>Detalles...</button>
+                    <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="comprobanteDeDomicilio">
+                            comprobante de domicilio reciente 
+                    </label>
+                    <button onClick={() => detallesHandler('comprobante de domicilio reciente Domicilio donde manifieste las armas Domicilio a nombre de el o carta de residencia en municipio') }>
+                        Detalles...
+                    </button>
+            </div>
+
+             <div>
+                    <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
+                    <button onClick={() => detallesHandler('Detalles ?') }>Detalles...</button>
             </div>
 
             <div>
-                    <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
-                    <button onClick={() => detallesHandler('Modulo de Informacio:') }>Detalles...</button>
+                    <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar" value={cartillaMilitar ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
+                    <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
+                    <button onClick={() => setIsActiveModalImg(!isActiveModalImg) }>Detalles...</button>
             </div>
 
             <div>
@@ -108,15 +119,7 @@ export const Users = () => {
                     <button onClick={() => detallesHandler('carta de trabajo ') }>Detalles...</button>
             </div>
 
-              <div>
-                    <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="comprobanteDeDomicilio">
-                            comprobante de domicilio reciente 
-                    </label>
-                    <button onClick={() => detallesHandler('comprobante de domicilio reciente Domicilio donde manifieste las armas Domicilio a nombre de el o carta de residencia en municipio') }>
-                        Detalles...
-                    </button>
-            </div>
+            
 
 
 
@@ -175,8 +178,13 @@ export const Users = () => {
                 <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar</button>
         </modal>
 
+        <modalImg className={isActiveModalImg ? "detalles outModal" : "detalles inModal "}>
+                <img  src={reqImg}  />
+                <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>Cerrar</button>
+        </modalImg>
 
 
+            
 
 
 
