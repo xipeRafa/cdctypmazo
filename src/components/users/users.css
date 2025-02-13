@@ -35,7 +35,7 @@ fieldset>div>button{
 
 fieldset>div>label {
   text-transform: capitalize;
-
+  user-select: none;
 }
 
 fieldset>div{
@@ -58,6 +58,7 @@ modal{
 	display: flex;
 	flex-direction: column;
 	z-index: 99;
+	border: 30px solid rgba(0,0,0, .5);
 }
 
 @media (max-width:900px){

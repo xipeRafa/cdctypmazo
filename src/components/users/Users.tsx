@@ -100,12 +100,6 @@ export const Users = () => {
                     <button onClick={() => detallesHandler('Modulo de Informacio:') }>Detalles...</button>
             </div>
 
-              <div>
-                    <input type="checkbox" id="certPsicologico" name="certPsicologico" onChange={handleChangeCheckbox}/>
-                    <label htmlFor="certPsicologico">Certificado psicologico </label>
-                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - calendario digital') }>Detalles...</button>
-            </div>
-
             <div>
                     <input type="checkbox" id="cartaDeTrabajo" name="cartaDeTrabajo" onChange={handleChangeCheckbox}/>
                     <label htmlFor="cartaDeTrabajo">
@@ -163,6 +157,12 @@ export const Users = () => {
                             copia de registros de armas legible
                     </label>
                     <button onClick={() => detallesHandler('copia de registros de armas legible') }>Detalles...</button>
+            </div>
+
+            <div>
+                    <input type="checkbox" id="certPsicologico" name="certPsicologico" onChange={handleChangeCheckbox}/>
+                    <label htmlFor="certPsicologico">Cita para Certificado psicologico </label>
+                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - calendario digital') }>Detalles...</button>
             </div>
 
 
