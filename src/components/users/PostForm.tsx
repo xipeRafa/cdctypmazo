@@ -79,18 +79,18 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
         onResetForm()
         // window.location.reload()
         localStorage.req=JSON.stringify({
-        cartillaMilitar:false, 
-        cartaNoAntecedentes:false, 
-        certPsicologico:false, 
-        cartaDeTrabajo:false,
+        cartillaMilitar:true, 
+        cartaNoAntecedentes:true, 
+        certPsicologico:true, 
+        cartaDeTrabajo:true,
 
-        comprobanteDeDomicilio:false, 
-        antidopin:false, 
-        certificadoMedico:false, 
-        ine:false,
+        comprobanteDeDomicilio:true, 
+        antidopin:true, 
+        certificadoMedico:true, 
+        ine:true,
 
-        fotos:false, 
-        registrosDeArmas:false})
+        fotos:true, 
+        registrosDeArmas:true})
     }
 
 
@@ -160,18 +160,18 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
 
 
                                                         localStorage.req=JSON.stringify({
-        cartillaMilitar:false, 
-        cartaNoAntecedentes:false, 
-        certPsicologico:false, 
-        cartaDeTrabajo:false,
+        cartillaMilitar:true, 
+        cartaNoAntecedentes:true, 
+        certPsicologico:true, 
+        cartaDeTrabajo:true,
 
-        comprobanteDeDomicilio:false, 
-        antidopin:false, 
-        certificadoMedico:false, 
-        ine:false,
+        comprobanteDeDomicilio:true, 
+        antidopin:true, 
+        certificadoMedico:true, 
+        ine:true,
 
-        fotos:false, 
-        registrosDeArmas:false})
+        fotos:true, 
+        registrosDeArmas:true})
 
 
                                             }} className="mt-5 btn">cancelar</button>
