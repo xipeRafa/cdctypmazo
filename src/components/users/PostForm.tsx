@@ -112,7 +112,9 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
 
     <div className="row1">
         <div className="col login-form-1 ">
-            <h3>Contacto</h3>
+            <h3>CONTACTO</h3>
+
+            <p> Envíanos tu Información de Contacto para Revisar los Documentos y/o poner Fecha para el Examen Psicológico. Recibirás un Correo en las Próximas 24 Horas</p>
 
             <form onSubmit={onSubmitUsers}>
 
@@ -159,7 +161,7 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
 
 
                 <div className="d-grid gap-2">
-                    <input type="submit" className="btnSubmitPost" value='ENVIAR'/>
+                    <input type="submit" className="btnSubmitPost btn" value='ENVIAR'/>
                     <button onClick={()=>{setFormContact('')
                          localStorage.req=JSON.stringify({
         cartillaMilitar:false, 
@@ -181,7 +183,7 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
         },1000)
 
                      }
-                    } className="mt-5 btn">cancelar</button>
+                    } className="mt-5 btn btn-outline-dark btn-sm">cancelar</button>
                     
                 </div>
 
