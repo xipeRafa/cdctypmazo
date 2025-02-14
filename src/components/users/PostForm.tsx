@@ -79,18 +79,22 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
         onResetForm()
         // window.location.reload()
         localStorage.req=JSON.stringify({
-        cartillaMilitar:true, 
-        cartaNoAntecedentes:true, 
-        certPsicologico:true, 
-        cartaDeTrabajo:true,
+        cartillaMilitar:false, 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
 
-        comprobanteDeDomicilio:true, 
-        antidopin:true, 
-        certificadoMedico:true, 
-        ine:true,
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        ine:false,
 
-        fotos:true, 
-        registrosDeArmas:true})
+        fotos:false, 
+        registrosDeArmas:false})
+
+        setTimeout(()=>{
+                window.location.reload()
+        },9000)
     }
 
 
@@ -157,24 +161,27 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
                 <div className="d-grid gap-2">
                     <input type="submit" className="btnSubmitPost" value='ENVIAR'/>
                     <button onClick={()=>{setFormContact('')
+                         localStorage.req=JSON.stringify({
+        cartillaMilitar:false, 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
+
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        ine:false,
+
+        fotos:false, 
+        registrosDeArmas:false})
 
 
-                                                        localStorage.req=JSON.stringify({
-        cartillaMilitar:true, 
-        cartaNoAntecedentes:true, 
-        certPsicologico:true, 
-        cartaDeTrabajo:true,
+                          setTimeout(()=>{
+                window.location.reload()
+        },1000)
 
-        comprobanteDeDomicilio:true, 
-        antidopin:true, 
-        certificadoMedico:true, 
-        ine:true,
-
-        fotos:true, 
-        registrosDeArmas:true})
-
-
-                                            }} className="mt-5 btn">cancelar</button>
+                     }
+                    } className="mt-5 btn">cancelar</button>
                     
                 </div>
 
