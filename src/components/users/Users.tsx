@@ -85,6 +85,7 @@ if(localStorage.req === undefined){
     if(Object.values(JSON.parse(localStorage.req)).filter(el => el === false).length === 0){
             if(formContanct===false){
                     setFormContact(true)
+                     window.scrollTo({ top: 0 })
             }
     }
 
