@@ -1,17 +1,22 @@
 
 import { useEffect, useState } from 'react'
-// import { PostForm } from './PostForm';
+import { PostForm } from './PostForm';
 import { useUsers } from '../../hooks'
 // import logo from '../../assets/logo.png'
 
 import './users.css';
 
 import reqImg from "../../imgs/requisitos.webp";
+import { useLocation, Navigate } from 'react-router-dom';
+
+
+
+
 
 
 export const Users = () => {
 
-
+ let location = useLocation();
 
 
     const { dataUsersGet, users, deleteUser, postUser, switchUser, setInfoToForm,
@@ -43,23 +48,49 @@ export const Users = () => {
         registrosDeArmas:false, 
     })
 
+    
+
+    // localStorage.req = JSON.stringify(requisitosState) 
+
+
+
     const {cartillaMilitar, horns, scales1, horns1} = requisitosState
 
+
     // const [arrStateReq, setArrStateReq]=useState([])
+
+
+    const [formContanct, setFormContact]=useState(false)
+
+if(localStorage.req === undefined){
+    localStorage.req = JSON.stringify(requisitosState)  
+}
+     
+
 
     const handleChangeCheckbox =(e)=>{
 
             setRequisitosState({...requisitosState, [e.target.name]: e.target.checked })
 
-            Object.values(requisitosState)
 
+                let nnewv = JSON.parse(localStorage.req)
+
+                nnewv[e.target.name] = e.target.checked
+
+                localStorage.req = JSON.stringify(nnewv) 
+      
     }
 
-    if(Object.values(requisitosState).filter(el => el === false).length === 0){
-                alert('completo')
-    }else{
-               
+
+    if(Object.values(JSON   .parse(localStorage.req)).filter(el => el === false).length === 0){
+            if(formContanct===false){
+                    setFormContact(true)
+            }
     }
+
+
+
+console.log(requisitosState)
 
 
 
@@ -67,13 +98,16 @@ export const Users = () => {
     const [isActiveModalImg, setIsActiveModalImg] = useState(true);
     const [detallesState, setDetallesState] = useState('')
 
-     console.log(isActiveModal)
+
 
 
      const detallesHandler=(text)=>{
         setIsActiveModal(!isActiveModal)
         setDetallesState(text)
      }
+
+
+
 
     return (
         <div>
@@ -90,7 +124,9 @@ export const Users = () => {
             <legend>Requisitos Documentacion para Inscripciones</legend>
 
             <div>
-                    <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}
+                        checked={JSON.parse(localStorage.req).comprobanteDeDomicilio ? true : false}
+                    />
                     <label htmlFor="comprobanteDeDomicilio">
                             comprobante de domicilio reciente 
                     </label>
@@ -99,20 +135,33 @@ export const Users = () => {
                     </button>
             </div>
 
+
+
+
              <div>
-                    <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).cartaNoAntecedentes ? true : false}
+                    />
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
                     <button onClick={() => detallesHandler('Detalles ?') }>Detalles...</button>
             </div>
 
+
+
             <div>
-                    <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar" value={cartillaMilitar ? 'true' : 'false'} onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="cartillaMilitar" name="cartillaMilitar"  onChange={handleChangeCheckbox}
+                        checked={JSON.parse(localStorage.req).cartillaMilitar ? true : false}
+                    />
                     <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
                     <button onClick={() => setIsActiveModalImg(!isActiveModalImg) }>Detalles...</button>
             </div>
 
+
+
             <div>
-                    <input type="checkbox" id="cartaDeTrabajo" name="cartaDeTrabajo" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="cartaDeTrabajo" name="cartaDeTrabajo" onChange={handleChangeCheckbox}
+                        checked={JSON.parse(localStorage.req).cartaDeTrabajo ? true : false}
+                    />
                     <label htmlFor="cartaDeTrabajo">
                             carta de trabajo 
                     </label>
@@ -127,20 +176,26 @@ export const Users = () => {
 
 
               <div>
-                    <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).antidopin ? true : false}
+                    />
                     <label htmlFor="antidopin">antidopin toxicologico</label>
                     <button onClick={() => detallesHandler('antidopin toxicologico') }>Detalles...</button>
             </div>
 
 
               <div>
-                    <input type="checkbox" id="certificadoMedico" name="certificadoMedico" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="certificadoMedico" name="certificadoMedico" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).certificadoMedico ? true : false}
+                    />
                     <label htmlFor="certificadoMedico">certificado medico </label>
                     <button onClick={() => detallesHandler('certificado medico') }>Detalles...</button>
             </div>
 
             <div>
-                    <input type="checkbox" id="ine" name="ine" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="ine" name="ine" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).ine ? true : false}
+                    />
                     <label htmlFor="ine">
                             INE
                     </label>
@@ -149,13 +204,17 @@ export const Users = () => {
 
 
               <div>
-                    <input type="checkbox" id="fotos" name="fotos" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="fotos" name="fotos" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).fotos ? true : false}
+                    />
                     <label htmlFor="fotos">fotografia a color  </label>
                     <button onClick={() => detallesHandler('fotografia a color fondo blanco a color sin lentes') }>Detalles...</button>
             </div>
 
             <div>
-                    <input type="checkbox" id="registrosDeArmas" name="registrosDeArmas" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="registrosDeArmas" name="registrosDeArmas" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).registrosDeArmas ? true : false}
+                    />
                     <label htmlFor="registrosDeArmas">
                             copia de registros de armas legible
                     </label>
@@ -163,7 +222,9 @@ export const Users = () => {
             </div>
 
             <div>
-                    <input type="checkbox" id="certPsicologico" name="certPsicologico" onChange={handleChangeCheckbox}/>
+                    <input type="checkbox" id="certPsicologico" name="certPsicologico" onChange={handleChangeCheckbox}
+                        checked={JSON.parse(localStorage.req).certPsicologico ? true : false}
+                    />
                     <label htmlFor="certPsicologico">Cita para Certificado psicologico </label>
                     <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - calendario digital') }>Detalles...</button>
             </div>
@@ -184,7 +245,9 @@ export const Users = () => {
         </modalImg>
 
 
-            
+           <div className={formContanct ? '' : 'd-none'}>
+            <PostForm postUser={postUser} setFormContact={setFormContact}/> 
+           </div> 
 
 
 

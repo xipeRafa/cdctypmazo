@@ -5,16 +5,20 @@ import { useForm } from '../../helpers';
 //lugar,calle,colonia,dia,hora,informes,fechaDeInicio
 
 
-export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith }) => {
+
+
+
+
+export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, setFormContact }) => {
 
     const[name2, setName2]=useState({
-        lugar:'',calle:'',colonia:'',dia:'',hora:'',informes:'',fechaDeInicio:'',para:''
+        nombre:'',correo:'',telefono:''
     })
 
 
 
 
-    const { lugar,calle,colonia,dia,hora,informes,fechaDeInicio,para, onInputChange: onPostInputChange, onResetForm } = useForm(name2);
+    const { nombre,correo,telefono, onInputChange: onPostInputChange, onResetForm } = useForm(name2);
 
   
 // console.log('dia:', fechaDeInicio.slice(-2), 'mes:', fechaDeInicio.slice(5,7), 'Año:', fechaDeInicio.slice(0,4))
@@ -24,40 +28,40 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith }) 
 
 
 
-function obtenerMes(n) {
+// function obtenerMes(n) {
 
-  const meses = {
-    '01': "Enero",
-    '02': "Febrero",
-    '03': "Marzo",
-    '04': "Abril",
-    '05': "Mayo",
-    '06': "Junio",
-    '07': "Julio",
-    '08': "Agosto",
-    '09': "Septiembre",
-    '10': "Octubre",
-    '11': "Noviembre",
-    '12': "Diciembre",
-    'default':'Falto Fecha'
+//   const meses = {
+//     '01': "Enero",
+//     '02': "Febrero",
+//     '03': "Marzo",
+//     '04': "Abril",
+//     '05': "Mayo",
+//     '06': "Junio",
+//     '07': "Julio",
+//     '08': "Agosto",
+//     '09': "Septiembre",
+//     '10': "Octubre",
+//     '11': "Noviembre",
+//     '12': "Diciembre",
+//     'default':'Falto Fecha'
 
-  };
+//   };
 
-  return meses[n] || meses['default']
-}
+//   return meses[n] || meses['default']
+// }
 
-    let mesTexto = obtenerMes(fechaDeInicio.slice(5,7))
+//     let mesTexto = obtenerMes(fechaDeInicio.slice(5,7))
 
 
 
-    let FI = Math.trunc(fechaDeInicio.slice(-2)) + ' de ' + mesTexto + ' del ' + fechaDeInicio.slice(0,4)
+//     let FI = Math.trunc(fechaDeInicio.slice(-2)) + ' de ' + mesTexto + ' del ' + fechaDeInicio.slice(0,4)
 
-     useEffect(() => { 
-        if(editMode !== undefined) {
-            const { lugar,calle,colonia,dia,hora,informes,fechaDeInicio,para } = editMode
-            setName2({lugar,calle,colonia,dia,hora,informes,fechaDeInicio:FI,para})
-        }
-    }, [editMode]) 
+//      useEffect(() => { 
+//         if(editMode !== undefined) {
+//             const { lugar,calle,colonia,dia,hora,informes,fechaDeInicio,para } = editMode
+//             setName2({lugar,calle,colonia,dia,hora,informes,fechaDeInicio:FI,para})
+//         }
+//     }, [editMode]) 
 
 
 
@@ -65,120 +69,85 @@ function obtenerMes(n) {
         event.preventDefault();
 
         if(editMode){
-            newDataEdit(lugar,calle,colonia,dia,hora,informes,FI,para, editMode.uid)
-            setName2({lugar:'',calle:'',colonia:'',dia:'',hora:'',informes:'', fechaDeInicio:'',para:''})
+            // newDataEdit(lugar,calle,colonia,dia,hora,informes,FI,para, editMode.uid)
+            // setName2({lugar:'',calle:'',colonia:'',fechaDeInicio:''})
         }else{
-            postUser({lugar,calle,colonia,dia,hora,informes,fechaDeInicio:FI,para})
+            postUser({nombre,correo,telefono})
+            setFormContact('')
         }
 
         onResetForm()
+        // window.location.reload()
+        localStorage.req=JSON.stringify({
+        cartillaMilitar:false, 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
+
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        ine:false,
+
+        fotos:false, 
+        registrosDeArmas:false})
     }
 
 
     
-    const handleCancelEdit =()=>{
-        defaultModeEdith()
-        setName2({lugar:'',calle:'',colonia:'',dia:'',hora:'',informes:'',fechaDeInicio:'',para:''})
-    }
+    // const handleCancelEdit =()=>{
+    //     defaultModeEdith()
+    //     setName2({lugar:'',calle:'',colonia:'',dia:'',hora:'',informes:'',fechaDeInicio:'',para:''})
+    // }
 
   
 
 
 
   return (
-    <div className="container login-container fix">
-    <div className="row">
-        <div className="col-md-6 login-form-1 fixed">
-            <h3>{editMode ? 'Edit User' : 'Post User'}</h3>
+
+    <div className="row1">
+        <div className="col login-form-1 ">
+            <h3>Contacto</h3>
 
             <form onSubmit={onSubmitUsers}>
 
 
-                <div className="form-group mb-2">
+                <div className="form-group mb-4">
                     <input
                         className="form-control"
-                        placeholder="Lugar"
-                        name="lugar"
-                        value={lugar}
+                        placeholder="Nombre"
+                        name="nombre"
+                        value={nombre}
                         onChange={onPostInputChange}
+                        required
                     />
                 </div>
 
-                <div className="form-group mb-2">
+                <div className="form-group mb-4">
                     <input
+                        type='email'
                         className="form-control"
-                        placeholder="Calle y Numero"
-                        name="calle"
-                        value={calle}
+                        placeholder="@ Correo"
+                        name="correo"
+                        value={correo}
                         onChange={onPostInputChange}
+                        required
                     />
                 </div>
                 
 
-                <div className="form-group mb-2">
+                <div className="form-group mb-5">
                     <input
+                        type='number'
                         className="form-control"
-                        placeholder="Colonia"
-                        name="colonia"
-                        value={colonia}
+                        placeholder="Telefono"
+                        name="telefono"
+                        value={telefono}
                         onChange={onPostInputChange}
-                    />
-                </div>
-
-                 <div className="form-group mb-2">
-                    <input
-                        className="form-control"
-                        placeholder="Dia"
-                        name="dia"
-                        value={dia}
-                        onChange={onPostInputChange}
-                    />
-                </div>
-
-
-                 <div className="form-group mb-2">
-                    <input
-                        className="form-control"
-                        placeholder="Hora"
-                        name="hora"
-                        value={hora}
-                        onChange={onPostInputChange}
-                    />
-                </div>
-
-                 <div className="form-group mb-2">
-                    <input
-                        className="form-control"
-                        placeholder="# Informes"
-                        name="informes"
-                        value={informes}
-                        onChange={onPostInputChange}
-                    />
-                </div>
-
-                 <div className="form-group mb-2">
-                    <input
                         required
-                        type='date'
-                        className="form-control"
-                        placeholder="Fecha de Inicio"
-                        name="fechaDeInicio"
-                        onChange={onPostInputChange}
                     />
                 </div>
-               
-
-               <div className="form-group mb-2">
-                    <select 
-                        className="form-control"  
-                        name="para"
-                        onChange={onPostInputChange}>
-                        <option>Para:</option>
-                        <option value="Adultos">Adultos</option>
-                        <option value="Matrimonios">Matrimonios</option>
-                        <option value="Jovenes">Jovenes</option>
-                    </select>
-                </div> 
 
 
 
@@ -186,18 +155,33 @@ function obtenerMes(n) {
 
 
                 <div className="d-grid gap-2">
-                    <input type="submit" className="btnSubmitPost" 
-                        value={ editMode ? 'Edit User': "New user"} />
+                    <input type="submit" className="btnSubmitPost" value='ENVIAR'/>
+                    <button onClick={()=>{setFormContact('')
 
-                    {editMode && 
-                        <input type="button" onClick={handleCancelEdit} className="editButton mt-5" value={ editMode ? 'Cancel Edition':'oko'} />
-                    }
+
+                                                        localStorage.req=JSON.stringify({
+        cartillaMilitar:false, 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
+
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        ine:false,
+
+        fotos:false, 
+        registrosDeArmas:false})
+
+
+                                            }} className="mt-5 btn">cancelar</button>
+                    
                 </div>
 
 
             </form>
         </div>
     </div>
-</div>
+
   )
 }

@@ -63,6 +63,7 @@ modal,modalImg{
 }
 
 modalImg>img{
+	margin-top: 10px;
 	width: 34%;
 	margin-left: 33%;
 }

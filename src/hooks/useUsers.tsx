@@ -9,7 +9,9 @@ import { errorConsoleCatch, toggleExplorer,
 import {defaultEditMode, usersDataPush, userDeleteView, switchUserView, editUserView} from  '../store/slices/usersSlice'
 import { somethingWentWrong, somethingWentRigth } from  '../store/slices/alertSlice'
 
+import { firestoreDB } from '../firebase/firebaseConfig';
 
+import { collection, addDoc } from 'firebase/firestore'
 
 
 
@@ -87,7 +89,7 @@ export const useUsers = () => {
             // localStorage.UsersTotal = JSON.stringify(JSON.parse(localStorage.UsersArray).length)
             // localStorage.step = '8'
         
-            dispatch(usersDataPush({usuarios:JSON.parse(localStorage.UsersArray)}))
+            // dispatch(usersDataPush({usuarios:JSON.parse(localStorage.UsersArray)}))
 
             // localStorage.UsersTotal = data.total  
             // paginationSelect(8)
@@ -116,15 +118,28 @@ export const useUsers = () => {
 // online solo arriba
 // offline abajo + arriba 
 
-  const postUser = async ({ lugar,calle,colonia,dia,hora,informes,fechaDeInicio,para }) => {
+  const postUser = async ({ nombre,correo,telefono }) => {
 
-          let curretUsers = JSON.parse(localStorage.UsersArray)
+
+
+
+
+
+
+        const postCollectionCaza = collection(firestoreDB, 'caza');
+
+        addDoc(postCollectionCaza, { nombre,correo,telefono, idDate:Date.now() })
+            .then((resp) => {
+                console.log(resp)
+            })
+            .catch((error) => { 
+                console.log('caza -=-=-=-=-=-= Error')
+                console.log(error)
+            })
+
+
+
           
-
-          curretUsers.push({ lugar,calle,colonia,dia,hora,informes,fechaDeInicio,para, uid:Date.now() })
-          localStorage.UsersArray = JSON.stringify(curretUsers)
-          dispatch(usersDataPush({usuarios:JSON.parse(localStorage.UsersArray)}))
-
       try {
           // const { newArray } = postExplorer(false, { nombre, correo, password })
           // dispatch(usersDataPush({usuarios:newArray})) 

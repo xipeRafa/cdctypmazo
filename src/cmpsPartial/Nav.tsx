@@ -23,12 +23,12 @@ export const Nav = ({ startLogout, status, user }) => {
                     <Link style={{color:"white"}} to="/categorias" className='mx-5'>Categorias</Link>
                   </span>*/}
 
-                <Link className="btn btn-primary mx-5"  to="/cdctypmazo" >
-                    Inscripción
+                <Link className="btn btn-outline-primary mx-5"  to="/cdctypmazo" >
+                    INSCRIPCÍON
                 </Link>
 
                 <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" >
-                    <i className="fas fa-sign-out-alt"></i> salir
+                    <i className="fas fa-sign-out-alt"></i> CUENTA
                 </Link>
 
                {/*onClick={ startLogout }*/}
