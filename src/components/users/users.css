@@ -31,11 +31,13 @@ fieldset>div>button{
 	margin-left: auto;
 	background-color: transparent;
  	color:steelblue;
+
 }
 
 fieldset>div>label {
   text-transform: capitalize;
   user-select: none;
+  margin-right: 12px;
 }
 
 fieldset>div{
