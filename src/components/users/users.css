@@ -50,7 +50,7 @@ fieldset>div:nth-child(even){
 }
 
 fieldset>div>button:nth-child(odd){
-	background-color: white;
+/*	background-color: white;*/
 }
 
 modal,modalImg{
