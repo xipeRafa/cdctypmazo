@@ -54,7 +54,7 @@ export const Users = () => {
 
 
 
-    const {cartillaMilitar, horns, scales1, horns1} = requisitosState
+    // const {cartillaMilitar, horns, scales1, horns1} = requisitosState
 
 
     // const [arrStateReq, setArrStateReq]=useState([])
@@ -62,9 +62,9 @@ export const Users = () => {
 
     const [formContanct, setFormContact]=useState(false)
 
-if(localStorage.req === undefined){
-    localStorage.req = JSON.stringify(requisitosState)  
-}
+    if(localStorage.req === undefined){
+            localStorage.req = JSON.stringify(requisitosState)  
+    }
      
 
 
@@ -72,26 +72,27 @@ if(localStorage.req === undefined){
 
             setRequisitosState({...requisitosState, [e.target.name]: e.target.checked })
 
+            let nnewv = JSON.parse(localStorage.req)
 
-                let nnewv = JSON.parse(localStorage.req)
+            nnewv[e.target.name] = e.target.checked
 
-                nnewv[e.target.name] = e.target.checked
-
-                localStorage.req = JSON.stringify(nnewv) 
+            localStorage.req = JSON.stringify(nnewv) 
       
     }
+
+
 
 
     if(Object.values(JSON.parse(localStorage.req)).filter(el => el === false).length === 0){
             if(formContanct===false){
                     setFormContact(true)
-                     window.scrollTo({ top: 0 })
+                    window.scrollTo({ top: 0 })
             }
     }
 
 
 
-console.log(requisitosState)
+
 
 
 
@@ -102,10 +103,10 @@ console.log(requisitosState)
 
 
 
-     const detallesHandler=(text)=>{
+    const detallesHandler=(text)=>{
         setIsActiveModal(!isActiveModal)
         setDetallesState(text)
-     }
+    }
 
 
 
@@ -246,9 +247,9 @@ console.log(requisitosState)
         </modalImg>
 
 
-           <div className={formContanct ? '' : 'd-none'}>
+        <div className={formContanct ? '' : 'd-none'}>
             <PostForm postUser={postUser} setFormContact={setFormContact}/> 
-           </div> 
+        </div> 
 
 
 

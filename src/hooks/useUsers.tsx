@@ -1,4 +1,6 @@
 
+import { useState, useEffect } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux'
 import axiosApi from '../api/api'
 
@@ -9,9 +11,18 @@ import { errorConsoleCatch, toggleExplorer,
 import {defaultEditMode, usersDataPush, userDeleteView, switchUserView, editUserView} from  '../store/slices/usersSlice'
 import { somethingWentWrong, somethingWentRigth } from  '../store/slices/alertSlice'
 
+
+
+
+
+
+
+
 import { firestoreDB } from '../firebase/firebaseConfig';
 
 import { collection, addDoc } from 'firebase/firestore'
+
+
 
 
 
@@ -45,7 +56,36 @@ export const useUsers = () => {
 
   const dataUsersGet = async (from=0, limit=8) => {
 
+
+
+        // const [items, setItems] = useState([])
+
+        // const itemCollection = collection(firestoreDB, 'caza')
+
+     
+
         
+
+        //     getDocs(itemCollection)
+        //       .then((querySnapshot) => {
+        //           if (querySnapshot.size === 0) {
+        //               console.log('No results!')
+        //           }
+
+        //           const documents = querySnapshot.docs.map((doc) => ({
+        //               id: doc.id,
+        //               ...doc.data(),
+        //           }))
+
+        //           console.log(documents)
+        //       })
+        //       .catch((err) => {
+        //           console.log('Error searching items', err)
+        //       });
+
+
+
+
 
           // const { data } = await axiosApi.get(`/usuarios/${from}/${limit}`)
           // //console.log('dataUsers limit 8:', data)
@@ -60,20 +100,20 @@ export const useUsers = () => {
 
 
 
-            let usersGet = [
-              {nombre:'juan0', correo:'juan@gmail.com', rol:'user', uid:1234561, estado:true, google:false, toggle:false, img:'https://plus.unsplash.com/premium_photo-1678233035759-89e0ab1062de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
-              {nombre:'juan1', correo:'juan@gmail.com', rol:'user', uid:1234562, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1506451778068-985b98c0de18?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
-              {nombre:'juan2', correo:'juan@gmail.com', rol:'user', uid:1234563, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1528357136257-0c25517acfea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
-              {nombre:'juan3', correo:'juan@gmail.com', rol:'user', uid:1234564, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1594857373854-0314626c18e7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
-              {nombre:'juan4', correo:'juan@gmail.com', rol:'user', uid:1234565, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1546718876-2d05e6e23046?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
-              {nombre:'juan5', correo:'juan@gmail.com', rol:'user', uid:1234566, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1470859685138-71dd60ed39b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
-              {nombre:'juan6', correo:'juan@gmail.com', rol:'user', uid:1234567, estado:true, google:false, toggle:false, img:'https://plus.unsplash.com/premium_photo-1677959658600-bbb6fbcc6890?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
-              {nombre:'juan7', correo:'juan@gmail.com', rol:'user', uid:1234568, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1531262549175-6ede6f8a91d2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
-              {nombre:'juan8', correo:'juan@gmail.com', rol:'user', uid:1234569, estado:true, google:false, toggle:false, img:'https://plus.unsplash.com/premium_photo-1678233035754-8ea508fb30b5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
-              {nombre:'juan9', correo:'juan@gmail.com', rol:'user', uid:1234560, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1553906451-86e5710d388e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
-              {nombre:'juan10', correo:'juan@gmail.com', rol:'user', uid:12345611, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1541657160149-b58d4e0d3c83?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
-              {nombre:'juan11', correo:'juan@gmail.com', rol:'user', uid:12345612, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1586015530974-66bba8e530ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' }
-            ]
+            // let usersGet = [
+            //   {nombre:'juan0', correo:'juan@gmail.com', rol:'user', uid:1234561, estado:true, google:false, toggle:false, img:'https://plus.unsplash.com/premium_photo-1678233035759-89e0ab1062de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
+            //   {nombre:'juan1', correo:'juan@gmail.com', rol:'user', uid:1234562, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1506451778068-985b98c0de18?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
+            //   {nombre:'juan2', correo:'juan@gmail.com', rol:'user', uid:1234563, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1528357136257-0c25517acfea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
+            //   {nombre:'juan3', correo:'juan@gmail.com', rol:'user', uid:1234564, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1594857373854-0314626c18e7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
+            //   {nombre:'juan4', correo:'juan@gmail.com', rol:'user', uid:1234565, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1546718876-2d05e6e23046?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
+            //   {nombre:'juan5', correo:'juan@gmail.com', rol:'user', uid:1234566, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1470859685138-71dd60ed39b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
+            //   {nombre:'juan6', correo:'juan@gmail.com', rol:'user', uid:1234567, estado:true, google:false, toggle:false, img:'https://plus.unsplash.com/premium_photo-1677959658600-bbb6fbcc6890?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8JTIwY2F0JUMzJUIzbGljYXxlbnwwfHwwfHx8MA%3D%3D' },
+            //   {nombre:'juan7', correo:'juan@gmail.com', rol:'user', uid:1234568, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1531262549175-6ede6f8a91d2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
+            //   {nombre:'juan8', correo:'juan@gmail.com', rol:'user', uid:1234569, estado:true, google:false, toggle:false, img:'https://plus.unsplash.com/premium_photo-1678233035754-8ea508fb30b5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
+            //   {nombre:'juan9', correo:'juan@gmail.com', rol:'user', uid:1234560, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1553906451-86e5710d388e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
+            //   {nombre:'juan10', correo:'juan@gmail.com', rol:'user', uid:12345611, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1541657160149-b58d4e0d3c83?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' },
+            //   {nombre:'juan11', correo:'juan@gmail.com', rol:'user', uid:12345612, estado:true, google:false, toggle:false, img:'https://images.unsplash.com/photo-1586015530974-66bba8e530ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fCUyMGNhdCVDMyVCM2xpY2F8ZW58MHx8MHx8fDA%3D' }
+            // ]
 
 
 

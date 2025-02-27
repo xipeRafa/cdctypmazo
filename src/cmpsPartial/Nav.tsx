@@ -27,9 +27,9 @@ export const Nav = ({ startLogout, status, user }) => {
                     INSCRIPCÍON
                 </Link>
 
-                <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" >
+              {/*  <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" >
                     <i className="fas fa-sign-out-alt"></i> CUENTA
-                </Link>
+                </Link>*/}
 
                {/*onClick={ startLogout }*/}
 {/*

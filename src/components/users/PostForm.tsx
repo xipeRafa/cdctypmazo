@@ -114,7 +114,8 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
         <div className="col login-form-1 ">
             <h3>CONTACTO</h3>
 
-            <p> Envíanos tu Información de Contacto para Revisar los Documentos y/o poner Fecha para el Examen Psicológico. Recibirás un Correo en las Próximas 24 Horas</p>
+            <p> Envíanos tu Información de Contacto para Revisar los Documentos y/o poner Fecha 
+            para el Examen Psicológico. Recibirás un Correo en las Próximas 48 Horas</p>
 
             <form onSubmit={onSubmitUsers}>
 
