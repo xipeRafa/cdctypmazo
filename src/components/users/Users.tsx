@@ -180,7 +180,7 @@ export const Users = () => {
                     <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}
                          checked={JSON.parse(localStorage.req).antidopin ? true : false}
                     />
-                    <label htmlFor="antidopin">Antidopin</label>
+                    <label htmlFor="antidopin">Antidoping</label>
                     <button onClick={() => detallesHandler('antidopin') }>Detalles...</button>
             </div>
 
@@ -245,13 +245,15 @@ export const Users = () => {
 
 
         <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
-                <div className='detallesContent'>{detallesState}</div>
+                
                 <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar</button>
+                <div className='detallesContent'>{detallesState}</div>
         </modal>
 
-        <modalImg className={isActiveModalImg ? "detalles outModal" : "detalles inModal "}>
-                <img  src={reqImg}  />
+        <modalImg className={isActiveModalImg ? "detalles outModalImg" : "detalles inModalImg "}>
+                
                 <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>Cerrar</button>
+                <img  src={reqImg}  /> 
         </modalImg>
 
 

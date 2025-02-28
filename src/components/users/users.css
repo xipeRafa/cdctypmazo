@@ -67,11 +67,11 @@ modal,modalImg{
 
 modalImg>img{
 	margin-top: 10px;
-	width: 34%;
+	width: 30%;
 	margin-left: 33%;
 }
 
-@media (max-width:600px){
+@media (max-width:800px){
 	modal{
 		border: 20px solid rgba(0,0,0, .5);
 	}
@@ -97,8 +97,24 @@ modalImg>img{
     transition: .8s;
 }
 
+
+.inModalImg{
+/*Box-shadow: -10vh -10vh red,  10vh 30vh black, 10vh -10vh green, -10vh 20vh yellow; */
+ 	position: absolute;
+  	top:0;
+  	left: 0;
+  	transition: .8s;
+}
+
+.outModalImg {
+	position: fixed;
+	top:0;
+    left: -150%;
+    transition: .8s;
+}
+
 .btnCerrarModal{
-   margin-top: auto;
+/*   margin-top: auto;*/
    background-color: salmon;
    color: darkred;
    border-radius: 0;
