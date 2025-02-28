@@ -154,7 +154,7 @@ export const Users = () => {
                         checked={JSON.parse(localStorage.req).cartillaMilitar ? true : false}
                     />
                     <label htmlFor="cartillaMilitar">cartilla militar liberada o excepción</label>
-                    <button onClick={() => setIsActiveModalImg(!isActiveModalImg) }>Detalles...</button>
+                    <button onClick={() =>{setIsActiveModalImg(!isActiveModalImg), window.scrollTo(0,0) }}>Detalles...</button>
             </div>
 
 
@@ -246,13 +246,13 @@ export const Users = () => {
 
         <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
                 
-                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar</button>
+                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar ✘ </button>
                 <div className='detallesContent'>{detallesState}</div>
         </modal>
 
         <modalImg className={isActiveModalImg ? "detalles outModalImg" : "detalles inModalImg "}>
                 
-                <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>Cerrar</button>
+                <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>Cerrar ✘ </button>
                 <img  src={reqImg}  /> 
         </modalImg>
 

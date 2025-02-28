@@ -118,11 +118,12 @@ modalImg>img{
    background-color: salmon;
    color: darkred;
    border-radius: 0;
+   text-align: right;
 }
 
 
 .detallesContent{
-	border: 2px solid red;
+	border: 2px solid gray;
 	text-align: center;
 	margin: 4%;
 	text-transform: capitalize;
