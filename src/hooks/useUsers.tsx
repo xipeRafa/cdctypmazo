@@ -29,15 +29,15 @@ import { collection, addDoc } from 'firebase/firestore'
 
 export const useUsers = () => {
 
-  const { users, editMode } = useSelector(state => state.usersSlice)
+    const { users, editMode } = useSelector(state => state.usersSlice)
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
   
 
   //"warning", "error", "success","info"
-  function SweetAlertError(error){
-      dispatch(somethingWentWrong(['Something Went Wrong', error?.response?.data?.errors[0]?.msg || 'working', 'error']))
-  }
+    function SweetAlertError(error){
+        dispatch(somethingWentWrong(['Something Went Wrong', error?.response?.data?.errors[0]?.msg || 'working', 'error']))
+    }
 
   // let usersLSArr =     JSON.parse(localStorage.UsersArray ) 
   // let fallUsersArr =   JSON.parse(localStorage.fallUsersArr )
@@ -54,7 +54,7 @@ export const useUsers = () => {
 
 
 
-  const dataUsersGet = async (from=0, limit=8) => {
+    const dataUsersGet = async (from=0, limit=8) => {
 
 
 

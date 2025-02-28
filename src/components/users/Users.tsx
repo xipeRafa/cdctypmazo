@@ -40,7 +40,8 @@ export const Users = () => {
         cartaDeTrabajo:false,
 
         comprobanteDeDomicilio:false, 
-        antidopin:false, 
+        antidopin:false,
+        examenToxicologico:false, 
         certificadoMedico:false, 
         ine:false,
 
@@ -118,8 +119,6 @@ export const Users = () => {
 
 
         <br />
-        <br />
-        <br />
 
         <fieldset>
 
@@ -181,8 +180,17 @@ export const Users = () => {
                     <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}
                          checked={JSON.parse(localStorage.req).antidopin ? true : false}
                     />
-                    <label htmlFor="antidopin">antidopin toxicologico</label>
-                    <button onClick={() => detallesHandler('antidopin toxicologico') }>Detalles...</button>
+                    <label htmlFor="antidopin">Antidopin</label>
+                    <button onClick={() => detallesHandler('antidopin') }>Detalles...</button>
+            </div>
+
+
+            <div>
+                    <input type="checkbox" id="examenToxicologico" name="examenToxicologico" onChange={handleChangeCheckbox}
+                         checked={JSON.parse(localStorage.req).examenToxicologico ? true : false}
+                    />
+                    <label htmlFor="examenToxicologico">Examen Toxicologico</label>
+                    <button onClick={() => detallesHandler('Examen toxicologico') }>Detalles...</button>
             </div>
 
 
@@ -251,6 +259,9 @@ export const Users = () => {
             <PostForm postUser={postUser} setFormContact={setFormContact}/> 
         </div> 
 
+        <div className='Agendar'>
+            <button className='button' onClick={()=>{setFormContact(true), window.scrollTo({ top: 0 })}}> Agendar Examen Psicologico </button>
+        </div>
 
 
 

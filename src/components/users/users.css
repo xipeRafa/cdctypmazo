@@ -1,13 +1,14 @@
 fieldset{
-	border: 1px solid gray; 
+
 	background-color: white;
 	width: 92%;
 	margin-left: 4%;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 
 legend {
-  background-color: #000;
+  background-color: #222;
   color: #fff;
   padding: 3px 6px;
   text-align: center;
@@ -46,7 +47,7 @@ fieldset>div{
 }
 
 fieldset>div:nth-child(even){
-	background-color: rgba(0,0,0, .2);
+	background-color: rgba(10,30,80, .2);
 }
 
 fieldset>div>button:nth-child(odd){
@@ -110,3 +111,30 @@ modalImg>img{
 	margin: 4%;
 	text-transform: capitalize;
 }
+
+
+
+.Agendar{
+		text-align: center;
+		margin: 40px 0;
+}
+.button{
+    padding: 6px;
+    border-radius: 6px;
+    border:none;
+    margin-right: 4px;
+/*    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.08) 0px 0px 0px 1px;*/
+/*box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;*/
+
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+/*box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;*/
+    background-image: linear-gradient(#fff, #c0cefa);
+    min-height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #222;
+}
+
+
+
+
