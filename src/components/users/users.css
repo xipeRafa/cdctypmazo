@@ -1,10 +1,12 @@
 fieldset{
-
+	margin-top: 9px;
 	background-color: white;
-	width: 92%;
-	margin-left: 4%;
+	width: 80%;
+	margin-left: 10%;
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
+
+
 
 
 legend {
@@ -14,6 +16,8 @@ legend {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .6px;
+  margin: 0;
+
 }
 
 fieldset>div{
@@ -62,7 +66,7 @@ modal,modalImg{
 	display: flex;
 	flex-direction: column;
 	z-index: 99;
-	border: 30px solid rgba(0,0,0, .5);
+	border: 30px solid rgba(0,0,0, 1);
 	text-align: center;
 }
 
@@ -73,8 +77,12 @@ modalImg>img{
 }
 
 @media (max-width:800px){
+	fieldset{
+		width: 92%;
+		margin-left: 4%;
+	}
 	modal{
-		border: 20px solid rgba(0,0,0, .5);
+		border: 20px solid rgba(0,0,0, .9);
 	}
 	modalImg>img{
 		width: 100%;
@@ -116,18 +124,24 @@ modalImg>img{
 
 .btnCerrarModal{
 /*   margin-top: auto;*/
-   background-color: salmon;
+   background-color: rgba(250, 128, 114, .2);
    color: darkred;
    border-radius: 0;
    text-align: right;
+   font-size: 12px;
 }
 
 
 .detallesContent{
-	border: 2px solid gray;
+/*	border: 2px solid gray;*/
+padding: 4px;
 	text-align: center;
 	margin: 4%;
 	text-transform: capitalize;
+	font-size: 20px;
+
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.08) 0px 0px 0px 1px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
@@ -153,6 +167,10 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
     color: #222;
 }
 
-
+fieldset>div>button{
+	text-transform: capitalize;
+	font-family: serif;
+	font-style: oblique;
+}
 
 

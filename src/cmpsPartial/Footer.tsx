@@ -17,7 +17,8 @@ export const Footer = () => {
 
   return (
     <div style={character}> 
-        <p>  Club Deportivo de Caza, Tiro y Pesca A.C.</p> 
+            <p>CAZADORES Y TIRADORES DEL DESIERTO DE SONORA, A. C.</p> 
+            <p>SAN LUIS POTOSI No. 158, COL. SAN BENITO, C.P.83190, HERMOSILLO, SON</p> 
     </div>
   )
 }

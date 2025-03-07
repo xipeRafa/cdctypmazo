@@ -117,7 +117,7 @@ console.log(location)
 
         <fieldset>
 
-            <legend style={{backgroundColor:'#3e5f8a'}}>Documentación para Renovaciones</legend>
+            <legend style={{backgroundColor:'rgba(90,153,188)'}}>Documentación para Renovaciones</legend>
 
             <div>
                     <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}
@@ -126,7 +126,7 @@ console.log(location)
                     <label htmlFor="comprobanteDeDomicilio">
                             comprobante de domicilio reciente 
                     </label>
-                    <button onClick={() => detallesHandler('comprobante de domicilio reciente Domicilio donde manifieste las armas Domicilio a nombre de el o carta de residencia en municipio') }>
+                    <button onClick={() => detallesHandler('comprobante de Domicilio Reciente, Domicilio donde Manifieste las Armas, Domicilio a Nombre de Socio ó En su defecto Carta de Residencia en Municipio') }>
                         Detalles...
                     </button>
             </div>
@@ -139,7 +139,7 @@ console.log(location)
                          checked={JSON.parse(localStorage.reqRen).cartaNoAntecedentes ? true : false}
                     />
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
-                    <button onClick={() => detallesHandler('Detalles ?') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Carta de No Antecedentes Penales Federales') }>Detalles...</button>
             </div>
 
 
@@ -155,7 +155,7 @@ console.log(location)
                     <label htmlFor="cartaDeTrabajo">
                             carta de trabajo 
                     </label>
-                    <button onClick={() => detallesHandler('carta de trabajo ') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Carta de Trabajo. Especificaciones: Hoja Membreteada, Logo de la Empresa con Dirección y Telefono Dirigida al Secretario de la Defensa Personal ó a Quien corresponda. con Carácter, Nombre, Antigüedad de Trabajo puesto que Desempeña en la Empresa, Conducto observada, Monto Mensual en Numeros y Letras,  Firma con Nombre Completo y puesto que Desempeña o Carta de Modo Honesto de Vivir, en Municipio para Empresarios') }>Detalles...</button>
             </div>
 
             
@@ -165,12 +165,12 @@ console.log(location)
 
 
 
-              <div>
+            <div>
                     <input type="checkbox" id="antidopin" name="antidopin" onChange={handleChangeCheckbox}
                          checked={JSON.parse(localStorage.reqRen).antidopin ? true : false}
                     />
                     <label htmlFor="antidopin">Antidoping</label>
-                    <button onClick={() => detallesHandler('antidopin') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Labaratorio Particular ó por medio de oficina del club') }>Detalles...</button>
             </div>
 
 
@@ -179,7 +179,7 @@ console.log(location)
                          checked={JSON.parse(localStorage.reqRen).examenToxicologico ? true : false}
                     />
                     <label htmlFor="examenToxicologico">Examen Toxicologico</label>
-                    <button onClick={() => detallesHandler('Examen toxicologico') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Examen Toxicologico emitido por un Doctor, Espicificaciones:') }>Detalles...</button>
             </div>
 
 
@@ -188,7 +188,7 @@ console.log(location)
                          checked={JSON.parse(localStorage.reqRen).certificadoMedico ? true : false}
                     />
                     <label htmlFor="certificadoMedico">certificado medico </label>
-                    <button onClick={() => detallesHandler('certificado medico') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('certificado medico pdf') }>Detalles...</button>
             </div>
 
 
@@ -197,7 +197,7 @@ console.log(location)
                         checked={JSON.parse(localStorage.reqRen).certPsicologico ? true : false}
                     />
                     <label htmlFor="certPsicologico">Cita para Certificado psicologico </label>
-                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - calendario digital') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - da click en el boton de agendar cita') }>Detalles...</button>
             </div>
 
 
@@ -207,7 +207,7 @@ console.log(location)
 
         <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
                 
-                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar ✘ </button>
+                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>⇦ Regresar</button>
                 <div className='detallesContent'>{detallesState}</div>
         </modal>
 

@@ -27,7 +27,7 @@ export const Nav = ({ startLogout, status, user }) => {
                     INSCRIPCÍON
                 </Link>
 
-                <Link to="/cdctypmazo/categorias" className="btn btn-primary mx-1">RENOVACIONES</Link>
+                <Link to="/cdctypmazo/categorias" style={{color:'white'}}className="btn btn-info mx-1">RENOVACIÓN</Link>
 
               {/*  <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" >
                     <i className="fas fa-sign-out-alt"></i> CUENTA

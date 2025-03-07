@@ -128,7 +128,7 @@ export const Users = () => {
                     <label htmlFor="comprobanteDeDomicilio">
                             comprobante de domicilio reciente 
                     </label>
-                    <button onClick={() => detallesHandler('comprobante de domicilio reciente Domicilio donde manifieste las armas Domicilio a nombre de el o carta de residencia en municipio') }>
+                    <button onClick={() => detallesHandler('comprobante de Domicilio Reciente, Domicilio donde Manifieste las Armas, Domicilio a Nombre de Socio ó En su defecto Carta de Residencia en Municipio') }>
                         Detalles...
                     </button>
             </div>
@@ -141,7 +141,7 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).cartaNoAntecedentes ? true : false}
                     />
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
-                    <button onClick={() => detallesHandler('Detalles ?') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Carta de No Antecedentes Penales Federales') }>Detalles...</button>
             </div>
 
 
@@ -163,7 +163,9 @@ export const Users = () => {
                     <label htmlFor="cartaDeTrabajo">
                             carta de trabajo 
                     </label>
-                    <button onClick={() => detallesHandler('carta de trabajo ') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Carta de Trabajo. Especificaciones: Hoja Membreteada, Logo de la Empresa con Dirección y Telefono Dirigida al Secretario de la Defensa Personal ó a Quien corresponda. con Carácter, Nombre, Antigüedad de Trabajo puesto que Desempeña en la Empresa, Conducto observada, Monto Mensual en Numeros y Letras,  Firma con Nombre Completo y puesto que Desempeña o Carta de Modo Honesto de Vivir, en Municipio para Empresarios') }>
+                            Detalles...
+                    </button>
             </div>
 
             
@@ -178,7 +180,7 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).antidopin ? true : false}
                     />
                     <label htmlFor="antidopin">Antidoping</label>
-                    <button onClick={() => detallesHandler('antidopin') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Labaratorio Particular ó por medio de oficina del club') }>Detalles...</button>
             </div>
 
 
@@ -187,7 +189,7 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).examenToxicologico ? true : false}
                     />
                     <label htmlFor="examenToxicologico">Examen Toxicologico</label>
-                    <button onClick={() => detallesHandler('Examen toxicologico') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Examen Toxicologico emitido por un Doctor, Espicificaciones:') }>Detalles...</button>
             </div>
 
 
@@ -196,7 +198,7 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).certificadoMedico ? true : false}
                     />
                     <label htmlFor="certificadoMedico">certificado medico </label>
-                    <button onClick={() => detallesHandler('certificado medico') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('certificado medico pdf') }>Detalles...</button>
             </div>
 
             <div>
@@ -205,8 +207,9 @@ export const Users = () => {
                     />
                     <label htmlFor="ine">
                             INE
+
                     </label>
-                    <button onClick={() => detallesHandler('INE') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('INE. Foto Por ambos lados escaneada') }>Detalles...</button>
             </div>
 
 
@@ -215,7 +218,7 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).fotos ? true : false}
                     />
                     <label htmlFor="fotos">fotografia a color  </label>
-                    <button onClick={() => detallesHandler('fotografia a color fondo blanco a color sin lentes') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Fotografia a Color, fondo blanco, sin lentes, sin gorra, sin sombrero, cara despejada, digital') }>Detalles...</button>
             </div>
 
             <div>
@@ -223,9 +226,9 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).registrosDeArmas ? true : false}
                     />
                     <label htmlFor="registrosDeArmas">
-                            copia de registros de armas legible
+                            copia de registros de armas 
                     </label>
-                    <button onClick={() => detallesHandler('copia de registros de armas legible') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('Copia de Registro de Armas legible, si es que tiene') }>Detalles...</button>
             </div>
 
             <div>
@@ -233,7 +236,7 @@ export const Users = () => {
                         checked={JSON.parse(localStorage.req).certPsicologico ? true : false}
                     />
                     <label htmlFor="certPsicologico">Cita para Certificado psicologico </label>
-                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - calendario digital') }>Detalles...</button>
+                    <button onClick={() => detallesHandler('en oficina martes 11:30 con cita - da click en el boton de agendar cita') }>Detalles...</button>
             </div>
 
 
@@ -243,13 +246,13 @@ export const Users = () => {
 
         <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
                 
-                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>Cerrar ✘ </button>
+                <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>⇦ Regresar </button>
                 <div className='detallesContent'>{detallesState}</div>
         </modal>
 
         <modalImg className={isActiveModalImg ? "detalles outModalImg" : "detalles inModalImg "}>
                 
-                <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>Cerrar ✘ </button>
+                <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>⇦ Regresar </button>
                 <img  src={reqImg}  /> 
         </modalImg>
 
