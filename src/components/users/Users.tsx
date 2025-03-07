@@ -95,6 +95,7 @@ export const Users = () => {
 
 
     const [isActiveModal, setIsActiveModal] = useState(true);
+    const [isActiveModalLink, setIsActiveModalLink] = useState(true);
     const [isActiveModalImg, setIsActiveModalImg] = useState(true);
     const [detallesState, setDetallesState] = useState('')
 
@@ -141,7 +142,7 @@ export const Users = () => {
                          checked={JSON.parse(localStorage.req).cartaNoAntecedentes ? true : false}
                     />
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
-                    <button onClick={() => detallesHandler('Carta de No Antecedentes Penales Federales') }>Detalles...</button>
+                    <button onClick={() =>{setIsActiveModalLink(!isActiveModalLink), window.scrollTo(0,0) }}>Detalles...</button>
             </div>
 
 
@@ -244,13 +245,22 @@ export const Users = () => {
 
 
 
-        <modal className={isActiveModal ? "detalles outModal" : "detalles inModal "}>
+        <modal className={isActiveModal ? "outModal" : "inModal "}>
                 
                 <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>⇦ Regresar </button>
                 <div className='detallesContent'>{detallesState}</div>
         </modal>
 
-        <modalImg className={isActiveModalImg ? "detalles outModalImg" : "detalles inModalImg "}>
+        <modal className={isActiveModalLink ? "outModal" : "inModal "}>
+                
+                <button className='btnCerrarModal' onClick={() => setIsActiveModalLink(!isActiveModalLink)}>⇦ Regresar </button>
+                <div className='detallesContent'>
+                    <p>Tramitar carta no antecedentes penales Federal mediante pagina oficial</p>
+                    <a style={{color:'steelblue'}}href='https://www.gob.mx/prevencionyreinsercion' target='_blanck'>link ↗</a>
+                </div>
+        </modal>
+
+        <modalImg className={isActiveModalImg ? "outModalImg" : "inModalImg "}>
                 
                 <button className='btnCerrarModal' onClick={() => setIsActiveModalImg(!isActiveModalImg)}>⇦ Regresar </button>
                 <img  src={reqImg}  /> 

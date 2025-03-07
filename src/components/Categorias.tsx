@@ -93,7 +93,7 @@ console.log(location)
 
 
     const [isActiveModal, setIsActiveModal] = useState(true);
-
+   const [isActiveModalLink, setIsActiveModalLink] = useState(true);
     const [detallesState, setDetallesState] = useState('')
 
 
@@ -134,12 +134,12 @@ console.log(location)
 
 
 
-             <div>
+               <div>
                     <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}
-                         checked={JSON.parse(localStorage.reqRen).cartaNoAntecedentes ? true : false}
+                         checked={JSON.parse(localStorage.req).cartaNoAntecedentes ? true : false}
                     />
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
-                    <button onClick={() => detallesHandler('Carta de No Antecedentes Penales Federales') }>Detalles...</button>
+                    <button onClick={() =>{setIsActiveModalLink(!isActiveModalLink), window.scrollTo(0,0) }}>Detalles...</button>
             </div>
 
 
@@ -209,6 +209,15 @@ console.log(location)
                 
                 <button className='btnCerrarModal' onClick={() => setIsActiveModal(!isActiveModal)}>⇦ Regresar</button>
                 <div className='detallesContent'>{detallesState}</div>
+        </modal>
+
+        <modal className={isActiveModalLink ? "outModal" : "inModal "}>
+                
+                <button className='btnCerrarModal' onClick={() => setIsActiveModalLink(!isActiveModalLink)}>⇦ Regresar </button>
+                <div className='detallesContent'>
+                    <p>Tramitar carta no antecedentes penales Federal mediante pagina oficial</p>
+                    <a style={{color:'steelblue'}}href='https://www.gob.mx/prevencionyreinsercion' target='_blanck'>link ↗</a>
+                </div>
         </modal>
 
 
