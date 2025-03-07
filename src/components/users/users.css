@@ -8,11 +8,12 @@ fieldset{
 
 
 legend {
-  background-color: #222;
+  background-color: #3e5f8a;
   color: #fff;
   padding: 3px 6px;
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: .6px;
 }
 
 fieldset>div{

@@ -51,9 +51,9 @@ const AppRouter = () => {
                <Route path="/cdctypmazo/auth/login"    element={<Login  startLogin={startLogin}       status={status} />} />
                 <Route path="/cdctypmazo/auth/register" element={<SignUp startRegister={startRegister} status={status} />} />
 
-         {/*       <Route path="/categorias" element={<Categorias />} />
+                <Route path="/cdctypmazo/categorias" element={<Categorias />} />
               
-                <Route path="/productos"  element={<Productos  />} />*/}
+                {/*<Route path="/productos"  element={<Productos  />} />*/}
 
 
                   <Route path="/cdctypmazo"  element={<Users  />} />

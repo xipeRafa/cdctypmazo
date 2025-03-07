@@ -9,14 +9,14 @@ import { useForm } from '../../helpers';
 
 
 
-export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, setFormContact }) => {
+export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, setFormContact,location }) => {
 
     const[name2, setName2]=useState({
         nombre:'',correo:'',telefono:''
     })
 
 
-
+console.log(location?.pathname)
 
     const { nombre,correo,telefono, onInputChange: onPostInputChange, onResetForm } = useForm(name2);
 
@@ -72,7 +72,13 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
             // newDataEdit(lugar,calle,colonia,dia,hora,informes,FI,para, editMode.uid)
             // setName2({lugar:'',calle:'',colonia:'',fechaDeInicio:''})
         }else{
-            postUser({nombre,correo,telefono})
+
+            if(location?.pathname==='/cdctypmazo/categorias'){
+                postUser({nombre,correo,telefono,ren:true})    
+            }else{
+                postUser({nombre,correo,telefono})    
+            }
+            
             setFormContact('')
         }
 
@@ -91,6 +97,18 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
 
         fotos:false, 
         registrosDeArmas:false})
+
+
+        localStorage.reqRen=JSON.stringify({ 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
+
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        })
+
 
         setTimeout(()=>{
                 window.location.reload()
@@ -112,7 +130,7 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
 
     <div className="row1">
         <div className="col login-form-1 ">
-            <h3>CONTACTO</h3>
+            <h3>{location?.pathname==='/cdctypmazo/categorias' ? 'RENOVACIÓN' : 'CONTACTO' }</h3>
 
             <p> Envíanos tu Información de Contacto para Revisar los Documentos y/o poner Fecha 
             para el Examen Psicológico. Recibirás un Correo en las Próximas 48 Horas</p>
@@ -177,6 +195,16 @@ export const PostForm = ({ postUser, editMode, newDataEdit, defaultModeEdith, se
 
         fotos:false, 
         registrosDeArmas:false})
+
+                         localStorage.reqRen=JSON.stringify({ 
+        cartaNoAntecedentes:false, 
+        certPsicologico:false, 
+        cartaDeTrabajo:false,
+
+        comprobanteDeDomicilio:false, 
+        antidopin:false, 
+        certificadoMedico:false, 
+        })
 
 
                           setTimeout(()=>{

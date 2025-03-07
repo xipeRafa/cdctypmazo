@@ -158,7 +158,7 @@ export const useUsers = () => {
 // online solo arriba
 // offline abajo + arriba 
 
-  const postUser = async ({ nombre,correo,telefono }) => {
+  const postUser = async ({ nombre,correo,telefono,ren=false }) => {
 
 
 
@@ -168,7 +168,7 @@ export const useUsers = () => {
 
         const postCollectionCaza = collection(firestoreDB, 'caza');
 
-        addDoc(postCollectionCaza, { nombre,correo,telefono, idDate:Date.now() })
+        addDoc(postCollectionCaza, { nombre,correo,telefono, idDate:Date.now(),ren })
             .then((resp) => {
                 console.log(resp)
             })

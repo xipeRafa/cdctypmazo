@@ -8,7 +8,7 @@ export const Nav = ({ startLogout, status, user }) => {
 
         <span className="navbar-brand">
             <i className="fas fa-calendar-alt"></i>&nbsp;
-             { user } Club Deportivo Mazocahui
+             { user } Club Deportivo De Tiro
         </span>
 {/*
         { status &&
@@ -20,12 +20,14 @@ export const Nav = ({ startLogout, status, user }) => {
                  {/*<span>
                   <Link style={{color:"white"}} to="/users"      className='mx-5'>Users     </Link>
                     <Link style={{color:"white"}} to="/productos"  className='mx-5'>Productos </Link>
-                    <Link style={{color:"white"}} to="/categorias" className='mx-5'>Categorias</Link>
+                    
                   </span>*/}
 
-                <Link className="btn btn-outline-primary mx-5"  to="/cdctypmazo" >
+                <Link className="btn btn-primary mx-3"  to="/cdctypmazo" >
                     INSCRIPCÍON
                 </Link>
+
+                <Link to="/cdctypmazo/categorias" className="btn btn-primary mx-1">RENOVACIONES</Link>
 
               {/*  <Link className="btn btn-outline-danger" to="/cdctypmazo/auth/login" >
                     <i className="fas fa-sign-out-alt"></i> CUENTA

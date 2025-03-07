@@ -17,7 +17,7 @@ export const Footer = () => {
 
   return (
     <div style={character}> 
-        <p>  Club Deportivo de Caza, Tiro y Pesca Mazocahui, A.C.</p> 
+        <p>  Club Deportivo de Caza, Tiro y Pesca A.C.</p> 
     </div>
   )
 }

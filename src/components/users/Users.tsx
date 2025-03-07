@@ -7,7 +7,6 @@ import { useUsers } from '../../hooks'
 import './users.css';
 
 import reqImg from "../../imgs/requisitos.webp";
-import { useLocation, Navigate } from 'react-router-dom';
 
 
 
@@ -15,8 +14,6 @@ import { useLocation, Navigate } from 'react-router-dom';
 
 
 export const Users = () => {
-
- let location = useLocation();
 
 
     const { dataUsersGet, users, deleteUser, postUser, switchUser, setInfoToForm,
@@ -26,9 +23,9 @@ export const Users = () => {
 
 
 
-    useEffect(() => {
-        dataUsersGet()
-    }, [])
+    // useEffect(() => {
+    //     dataUsersGet()
+    // }, [])
 
 
 
@@ -122,7 +119,7 @@ export const Users = () => {
 
         <fieldset>
 
-            <legend>Requisitos Documentacion para Inscripciones</legend>
+            <legend>Requisitos Documentación para Inscripciones</legend>
 
             <div>
                     <input type="checkbox" id="comprobanteDeDomicilio" name="comprobanteDeDomicilio" onChange={handleChangeCheckbox}
