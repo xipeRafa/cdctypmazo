@@ -136,7 +136,7 @@ console.log(location)
 
                <div>
                     <input type="checkbox" id="cartaNoAntecedentes" name="cartaNoAntecedentes" onChange={handleChangeCheckbox}
-                         checked={JSON.parse(localStorage.req).cartaNoAntecedentes ? true : false}
+                         checked={JSON.parse(localStorage.reqRen).cartaNoAntecedentes ? true : false}
                     />
                     <label htmlFor="cartaNoAntecedentes">carta no antecedentes penales Federal</label>
                     <button onClick={() =>{setIsActiveModalLink(!isActiveModalLink), window.scrollTo(0,0) }}>Detalles...</button>
